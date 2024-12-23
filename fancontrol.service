@@ -1,0 +1,15 @@
+[Unit]
+Description=Python based Fan control for cooling devices CPU
+
+[Service]
+Type=simple
+Environment=PYTHONUNBUFFERED=1
+StandardOutput=syslog+console
+StandardError=syslog+console
+WorkingDirectory=/opt/fancontrol/
+ExecStart=sudo /usr/bin/python -u /opt/fancontrol/main.py
+RestartSec=5s
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
